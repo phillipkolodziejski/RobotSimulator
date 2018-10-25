@@ -1,6 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
+/*
+ * Created by Phillip Kolodziejski on 25/10/18.
+ */
 
 namespace RobotSimulator
 {
