@@ -35,6 +35,8 @@ namespace RobotSimulator
 
             RobotSimulator rb = new RobotSimulator();
 
+            string filename = "instructions.txt";
+
             if (args.Length > 0)
             {
                 if (args[0] == "interactive")
@@ -45,12 +47,15 @@ namespace RobotSimulator
 
                 if (args.Length > 1 && args[0] == "automated")
                 {
+                    filename = args[1];
+
                     Console.WriteLine("Automated mode started.");
-                    Console.WriteLine("FILE: " + args[1]);
+                    Console.WriteLine("Instruction File: " + args[1]);
+
                     rb.AutomatedMode(args[1]);
                 }
             } else {
-                rb.AutomatedMode("instructions.txt");
+                rb.AutomatedMode(filename);
             }
             
         }
@@ -173,7 +178,7 @@ namespace RobotSimulator
         {
             List<string> instructionList = new List<string>();
 
-            FileStream fileStream = new FileStream("instructions.txt", FileMode.Open);
+            FileStream fileStream = new FileStream(filename, FileMode.Open);
             StreamReader reader = new StreamReader(fileStream);
             int counter = 0;
             string line;
